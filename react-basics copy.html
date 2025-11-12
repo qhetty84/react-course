@@ -11,41 +11,40 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      
-      function App({ name, price, discountPrice, imageSrc }) {
-        return (
-          <div>
-            <img src={imageSrc}
-              width="50"></img>
-            <p>{name}</p>
-            {discountPrice ? (
-              <del><p>Price: ${price}</p></del>
-            ) : (
-              <p>Price: ${price}</p>
-            )}
-            {discountPrice && (
-              <p>Discount price: ${discountPrice}</p>
-            )}
-            <button>Add to Cart</button>
-          </div>
-        )
-      }
 
-      function ProductDetails() {
+      function App() {
+        const [inputText, setInputText] = React.useState(''); 
+
+        function saveInputText(event) {
+          setInputText(event.target.value);
+        }
+
+        function reset() {
+          setInputText('');
+        }
+
+        function example() {
+          setInputText('Example');
+        }
+
         return (
           <>
-            <App name="Cotton socks" price="10.90" discountPrice="5.45"
-              imageSrc="cotton-socks.png" />
-            <App name="Tennis balls" price="6.00"
-              imageSrc="tennis-balls.png" />
-            <App name="Plain T-Shirt" price="7.99"
-              imageSrc="plain-t-shirt.png" />
+            <input
+              value={inputText}
+              onChange={saveInputText}>
+            </input>
+            <button
+              onClick={reset}
+            >Reset</button>
+            <button
+              onClick={example}>Example</button>
+            <p>{inputText}</p>
           </>
         )
       }
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<ProductDetails />);
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
