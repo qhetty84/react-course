@@ -3,8 +3,29 @@
   <head>
     <title>React Basics</title>
     <style>
-      #on {
-        background-color: rgb(25 135 84);
+      input {
+        padding: 10px 12px;
+        border-radius: 4px;
+        border: 1px solid black;
+        margin-top: 10px;
+      }
+      button {
+        background-color: rgb(0, 123, 255);
+        padding: 10px 15px;
+        margin-right: 5px;
+        margin-top: 10px;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      #show {
+        padding: 5px 6px;
+        background-color: rgb(235, 235, 235);
+        color: black;
+        border: 1px solid black;
+        margin-left: 10px;
       }
     </style>
   </head>
@@ -16,12 +37,46 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-
       function App() {
+        const [showPassword, setShowPassword] = React.useState(true);
+        
+        function changeShowPassword () {
+          setShowPassword(!showPassword
+          );
+        }
+
         return (
-          <>
-            <button id="on">ON</button>
-          </>
+          <div>
+            <h1>Hello, welcome to my website</h1>
+            <div>
+              <input
+                type='email'
+                placeholder='Email'
+              ></input>
+            </div>
+            <div>
+              <input
+                type={showPassword ? 'password' : 'text'}
+                placeholder='Password'
+              ></input>
+              <button
+                id='show'
+                onClick={changeShowPassword}
+              >
+                {showPassword ? 'Show' : 'Hide'}
+              </button>
+            </div>
+            <button
+              className='login'
+            >
+              Login
+            </button>
+            <button
+              className='sign-up'
+            >
+              Sign up
+            </button>
+          </div>
         )
       }
 
