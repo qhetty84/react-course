@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>React Basics</title>
+    <style>
+      #on {
+        background-color: rgb(25 135 84);
+      }
+    </style>
   </head>
   <body>
     <div class="js-container"></div>
@@ -13,32 +18,9 @@
     <script type="text/babel">
 
       function App() {
-        const [inputText, setInputText] = React.useState(''); 
-
-        function saveInputText(event) {
-          setInputText(event.target.value);
-        }
-
-        function reset() {
-          setInputText('');
-        }
-
-        function example() {
-          setInputText('Example');
-        }
-
         return (
           <>
-            <input
-              value={inputText}
-              onChange={saveInputText}>
-            </input>
-            <button
-              onClick={reset}
-            >Reset</button>
-            <button
-              onClick={example}>Example</button>
-            <p>{inputText}</p>
+            <button id="on">ON</button>
           </>
         )
       }
