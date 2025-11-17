@@ -36,48 +36,17 @@
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script type="text/babel">
-      function App() {
-        const [showPassword, setShowPassword] = React.useState(true);
-        
-        function changeShowPassword () {
-          setShowPassword(!showPassword
-          );
+      function App({}) {
+        async function delayedGreeting(name) {
+        console.log("A Messenger entered the chat...");
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          console.log(`Hello, ${name}!`);
         }
 
-        return (
-          <div>
-            <h1>Hello, welcome to my website</h1>
-            <div>
-              <input
-                type='email'
-                placeholder='Email'
-              ></input>
-            </div>
-            <div>
-              <input
-                type={showPassword ? 'password' : 'text'}
-                placeholder='Password'
-              ></input>
-              <button
-                id='show'
-                onClick={changeShowPassword}
-              >
-                {showPassword ? 'Show' : 'Hide'}
-              </button>
-            </div>
-            <button
-              className='login'
-            >
-              Login
-            </button>
-            <button
-              className='sign-up'
-            >
-              Sign up
-            </button>
-          </div>
-        )
+        delayedGreeting("Alice");
+        console.log("First Printed Message!");
       }
 
       const container = document.querySelector('.js-container');
