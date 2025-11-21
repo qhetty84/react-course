@@ -8,7 +8,7 @@ export function Product({ product, loadCart }) {
   const addToCart = async () => {
     await axios.post("/api/cart-items", {
       productId: product.id,
-      quantity,
+      quantity
     });
     await loadCart();
   };
